@@ -1,2 +1,2 @@
-# ZL-WS-L
+# ZeLoot WebSocket Library
 "ZeLoot" brings a library that facilitates the use of websocket as a client a unity engine. the library comes as the function to solve the problem of raw (custom) game server creation and also the easy implementation of the websocket in the unity project. The goal is to avoid using third party libraries and have a 100% raw websocket programming using the websocket project programming language library and C# library .net and the project is called "ZL WebSocket" or "ZL WebSocket L" or another more difficult and of little character "ZL WS / ZL WS L" which is a shorthand for "ZeLoot Websocket Library".
