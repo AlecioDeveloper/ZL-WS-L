@@ -1,0 +1,39 @@
+using ZeLoot;
+using ZeLoot.Parse;
+using ZeLoot.WebSocket;
+
+public class ZeLootWebSocketLibrary
+{
+  [SerializeField] private string host;
+  [SerializeField] private bool autoConnect;
+  private static ZeLootWebSocket ZLWS;
+  [Space(20)]
+  [SerializeField] private ZeLootWebSocketStatus wsStatus;
+  [SerializeField] private float ping;
+  
+  private async void Start()
+  {
+    //connecting websocket
+    await ZLWS.Connect(host); //connecting to server
+    //get status of connetion
+    wsStatus = ZLWS.GetNewStatus;
+    //verify status
+    if(wsStatus == ZeLootWebSocketStaus.Connected)
+    {
+      //create data
+      string play_data = @"
+      {
+        "event":"play",
+        "data":"{"id":1,"how": "squad","mode":"zombie"}"
+        }
+      "
+      //parse data
+      byte[] data = ZeLootParse.GetBytes(play_data);
+      //send data
+      ZLWS.Send(data);
+      //received
+      
+    }
+    
+  }
+}
